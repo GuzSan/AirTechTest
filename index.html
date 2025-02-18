@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions Showcase</title>
+</head>
+<body>
+    <h1>JavaScript Functions Showcase</h1>
+	 <h2>Inmutable property</h2>
+    <p>This function shows how to work with different Inmutable properties</p>
+    <pre>
+        <code>
+			// Create an object with a "hello" method
+			const greetings = {
+				// Define the "hello" method
+				hello: function(name) {
+				console.log(`Hello ${name}`);
+				}
+			};
+
+			// Call the "hello" method with a name
+			greetings.hello('Santiago guzman'); //This will call the function hello, that will print in console
+        </code>
+    </pre>
+		
+    
+    <h2>Try the Function:</h2>
+	 <button id="testbtn1">Call hello() mutable function</button>
+	   <script src="Problem1.js"></script> 
+	 
+	
+	
+	
+	 <h2>Inmutable property</h2>
+    <p>This function shows how to work with different Inmutable properties</p>
+    <pre>
+        <code>
+            const greeter = {
+				hello: function() {
+				console.log(`Hello ${this.name}`);
+				}
+			};
+
+			// Define a property "name" that is read-only (immutable)
+			Object.defineProperty(greeter, 'name', {
+			value: 'Santiago Guzman',
+			writable: false,  // Make it immutable (or read-only as show above)
+			configurable: false, // Cannot be deleted or redefined
+			});
+
+			// Try to change the name property
+			greeter.name = 'Santiago V'; // This will not work because the property is non-writable
+
+			// Call the "hello" method
+			greeter.hello(); //Output: 'Santiago Guzman'
+        </code>
+    </pre>
+		
+    
+    <h2>Try the Function:</h2>
+	 <button id="tstbtn2">Call hello() Method</button>
+	   <script src="Problem2.js"></script> 
+	 
+    <h2>Count Cities Function</h2>
+    <p>This function logs the 5 cities with the most occurrences.</p>
+    <pre>
+        <code>
+            function CountCities(cities) {
+			// Create an object to store the count of each city
+			const cityCount = {};
+
+			// Loop through the cities list and count occurrences
+			for (let city of cities) {
+				cityCount[city] = (cityCount[city] || 0) + 1;
+			}
+
+			// Convert the cityCount object to an array of [city, count] pairs
+			const sortedCities = Object.entries(cityCount)
+			.sort((a, b) => b[1] - a[1]) // Sort by count in descending order
+
+			// Get all cities by descending order
+			sortedCities.forEach(([city, count]) => {
+				console.log(`${city}: ${count}`);
+			});
+			}
+        </code>
+    </pre>
+    
+    <h2>Try the Functions:</h2>
+    <button onclick="CountCities([  'nasville',
+  'nasville',
+  'los angeles',
+  'nasville',
+  'Madrid',
+  'memphis',
+  'barcelona',
+  'los angeles',
+  'sevilla',
+  'Madrid',
+  'canary islands',
+  'barcelona',
+  'Madrid',
+  'Madrid',
+  'nasville',
+  'barcelona',
+  'london',
+  'berlin',
+  'Madrid',
+  'nasville',
+  'london',
+  'Madrid',
+  'Madrid'])">Test topCities</button>
+    
+    <script src="Problem3.js"></script> 
+</body>
+</html>
